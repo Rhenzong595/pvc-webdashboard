@@ -6,18 +6,26 @@ body {
 .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-columns: 300px 1fr; /* Sidebar takes 300px */
+  grid-template-rows: 60px 1fr; /* Header takes 60px */
   grid-template-areas:
       "header header"
       "side main";
   background-color: #f0f0f0;
 }
 
+/* Header with gradient background */
 .header {
-  background-color: #fff;
+  background: linear-gradient(90deg, #4caf50, #8bc34a); /* Green gradient */
   grid-area: header;
-  padding: 5px;
+  padding: 1px 5px; /* Adjust padding for better visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers the text vertically */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
 }
 
 .sidebar {
@@ -27,7 +35,37 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
+}
+
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav ul li {
+  margin: 15px 0;
+}
+
+.nav-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.nav-button:hover {
+  background-color: #45a049;
+}
+
+.sidebar-status {
+  margin-top: 30px;
 }
 
 .main {
@@ -49,25 +87,56 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.card:nth-child(1) {
-  grid-area: c1;
-}
-.card:nth-child(2) {
-  grid-area: c2;
-}
-.card:nth-child(3) {
-  grid-area: c3;
-}
+/* Make Widget 4 span across two columns */
 .card:nth-child(4) {
   grid-area: c4;
 }
-.card:nth-child(5) {
-  grid-area: c5;
+
+.placeholder-card {
+  background-color: #fafafa;
+  border: 2px dashed #ddd;
+  color: #999;
 }
-.card:nth-child(6) {
-  grid-area: c6;
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.status-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.status-circle.green {
+  background-color: green;
+}
+
+.status-circle.red {
+  background-color: red;
 }
 
 @media (max-width: 925px) {
