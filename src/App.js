@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>Dashboard - Hydroponic Web Dashboard </h1>
+        <h1>Dashboard - Hydroponic Web Dashboard</h1>
       </header>
 
       <aside className="sidebar">
@@ -20,8 +20,6 @@ function App() {
         <div className="sidebar-status">
           <h4>System Health</h4>
           <p>Online</p>
-          <h4>Last Update</h4>
-          <p>5 minutes ago</p>
         </div>
       </aside>
 
@@ -71,16 +69,6 @@ function App() {
         {/* Widget 4: Large Placeholder */}
         <div className="card placeholder-card">
           <h3>Additional Feature Coming Soon</h3>
-        </div>
-
-        {/* Widget 5: Placeholder */}
-        <div className="card placeholder-card">
-          <h3>Add in Widget</h3>
-        </div>
-
-        {/* Widget 6: Placeholder */}
-        <div className="card placeholder-card">
-          <h3>Add in Widget</h3>
         </div>
       </main>
     </div>

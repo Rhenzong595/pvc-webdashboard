@@ -10,7 +10,7 @@ body {
   grid-template-rows: 60px 1fr; /* Header takes 60px */
   grid-template-areas:
       "header header"
-      "side main";
+      "side main";  /* Sidebar on the left, main content on the right */
   background-color: #f0f0f0;
 }
 
@@ -18,14 +18,14 @@ body {
 .header {
   background: linear-gradient(90deg, #4caf50, #8bc34a); /* Green gradient */
   grid-area: header;
-  padding: 1px 5px; /* Adjust padding for better visibility */
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center; /* Centers the text vertically */
   color: white;
-  font-size: 1rem;
+  font-size: 1rem; /* Adjusted to 1rem to make it smaller */
   font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+  z-index: 2;
 }
 
 .sidebar {
@@ -36,9 +36,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100vh; /* Sidebar full height */
+  overflow-y: auto; /* In case content overflows */
+  z-index: 1; /* Make sure sidebar stays behind the header */
 }
 
+/* Ensure sidebar links and buttons are visible */
 .sidebar-nav ul {
   list-style-type: none;
   padding: 0;
@@ -74,11 +77,10 @@ body {
   grid-area: main;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
   grid-template-areas:
       "c1 c2 c3"
-      "c4 c4 c5"
-      "c4 c4 c6";
+      "c4 c4 c4"; /* Widget 4 spans the entire bottom */
   gap: 20px;
 }
 
@@ -93,7 +95,12 @@ body {
   justify-content: center;
 }
 
-/* Make Widget 4 span across two columns */
+/* Widget 1, 2, 3 */
+.card:nth-child(1) { grid-area: c1; }
+.card:nth-child(2) { grid-area: c2; }
+.card:nth-child(3) { grid-area: c3; }
+
+/* Widget 4 spans the entire bottom */
 .card:nth-child(4) {
   grid-area: c4;
 }
@@ -142,7 +149,7 @@ body {
 @media (max-width: 925px) {
   .main {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(6, 200px);
+      grid-template-rows: repeat(4, 200px);
       grid-template-areas: initial;
   }
 
