@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Flow from './Flow';
 
 function App() {
   return (
@@ -67,8 +68,9 @@ function App() {
         </div>
 
         {/* Widget 4: Large Placeholder */}
-        <div className="card placeholder-card">
-          <h3>Additional Feature Coming Soon</h3>
+        <div className="card node-diagram">
+          <Flow />
+          {/* <h3>Additional Feature Coming Soon</h3> */}
         </div>
       </main>
     </div>
